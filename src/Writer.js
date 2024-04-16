@@ -28,7 +28,7 @@ const data_collection = "private";
 const table = "inheritance2";
 
 const CHAIN_ID = "0x14A33"; //base testnet
-const CONTRACT_ADDRESS = "0xc2CA9937fCbd04e214965fFfD3526045aba337CC";
+const CONTRACT_ADDRESS = "0x75DF5D1007325410cD6f6809D39142edE44f88a1";
 const CHAIN_URL = "https://goerli.base.org";
 
 const ethereum = coinbaseWallet.makeWeb3Provider(CHAIN_URL, CHAIN_ID);
@@ -69,21 +69,21 @@ class Writer extends Component {
             credentials: null,
             saved: false,
             wallet: null,
-            oracle_1: "0x4AC8f386A76fD64B572619019314715Ad1C2de70",
-            oracle_2: "0x72F97C6108378656a99Fcd4eD58d944E91d74a1b",
-            oracle_3: "0xAd55981118506cEFB74086f11C76d1680A5bda3F",
-            claim_1: "John Doe, son, with last 4 SSN digits 1234, 1 House in Palm Beach",
+            oracle_1: "0x8b2B7929AEB79786C536fa23a3444C8aBa6BC2eF",
+            oracle_2: "0xaB2Ecc1acE58E9c2F33827f87A1781A1dBd4c36e",
+            oracle_3: "0x336AD9d35320c5fA20A1b50371D29ffc60fAAbda",
+            claim_1: "Setu Mishra, son, with last 4 Aadhar digit 2553, 15 Houses on Mars",
             qty_1: 100,
-            wallet_1: "0x4AC8f386A76fD64B572619019314715Ad1C2de70",
-            claim_2: "Jane Doe, daughter, with last 4 SSN digits 5678, Fiat USD",
+            wallet_1: "0x8b2B7929AEB79786C536fa23a3444C8aBa6BC2eF",
+            claim_2: "Vratik Zade, son, with last 4 Aadhar digits 5678, Fiat USD",
             qty_2: 200,
-            wallet_2: "0x72F97C6108378656a99Fcd4eD58d944E91d74a1b",
-            claim_3: "George Doe, nephew, with last 4 SSN digits 4567, Fiat USD",
+            wallet_2: "0xaB2Ecc1acE58E9c2F33827f87A1781A1dBd4c36e",
+            claim_3: "Akshay Dhobale, nephew, with last 4 Aadhar digits 4567, Fiat USD",
             qty_3: 300,
-            wallet_3: "0xAd55981118506cEFB74086f11C76d1680A5bda3F",
-            claim_4: "Mary Doe, niece, with last 4 SSN digits 7654, Fiat USD",
+            wallet_3: "0x336AD9d35320c5fA20A1b50371D29ffc60fAAbda",
+            claim_4: "Mayuri Kamdi, niece, with last 4 Aadhar digits 7654, Fiat USD",
             qty_4: 400,
-            wallet_4: "0x6575be9b0D1C8c9c611078aCd6f0cED2586053ef",
+            wallet_4: "0x660b4a2D83668c32e1fFcF1863aa38ab62dA9726",
         };
 
         this.loadWeb3().then(async () => {
