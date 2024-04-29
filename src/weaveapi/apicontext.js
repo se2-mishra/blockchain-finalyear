@@ -3,6 +3,7 @@ import { binary_to_base58, base58_to_binary } from 'base58-js'
 
 const MAX_B58_LEN = 55;
 
+
 const CURVE_TYPE = "secp256k1";
 
 const Buffer = require("buffer").Buffer

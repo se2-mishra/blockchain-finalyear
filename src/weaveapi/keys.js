@@ -12,6 +12,7 @@ function readKey(publicKey, publicKeyFile) {
     }
 }
 
+
 function wordToByteArray(arr) {
     const byteArray = new Int8Array(arr.words.length * 4);
     var k = 0;

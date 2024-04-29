@@ -5,6 +5,7 @@ const Form = ({ field, onChangeFunc, placeholder, styling }) => {
     : styling = "rounded-sm text-black p-1 bg-zinc-500 focus:bg-white " + styling
   return (
     (<input className={styling} onChange={onChangeFunc} type="text" value={field} placeholder={placeholder} />)
+    
   )
 }
 

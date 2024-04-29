@@ -16,6 +16,7 @@ export class TermsOptions {
     }
 }
 
+
 const TERMS_AGREE = new TermsOptions(true, true);
 const TERMS_DISAGREE = new TermsOptions(false, false);
 

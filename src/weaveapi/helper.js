@@ -10,6 +10,7 @@ export const generateKeys = () => {
     return ApiContext.generateKeys();
 }
 
+
 export const toHex = (arg) => {
     return keys.toHex(arg);
 }

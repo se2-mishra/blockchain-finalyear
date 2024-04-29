@@ -10,6 +10,7 @@ const SidebarWriter = ({ switchView }) => {
       <div className='flex justify-center '>
         <img src={inherilogo} className="logo m-4 w-2/3 ml-2" alt="logo" />
       </div>
+      
       <div className='text-white h-2/5 mt-10 text-md pl-8 flex flex-col justify-around'>
         <div>
           <div className='flex items-center justify-left'>

@@ -5,6 +5,7 @@ import { addIntegritySignature } from "./helper"
 
 import { enc } from "crypto-js"
 
+
 const Buffer = require("buffer").Buffer
 
 class ClientHttp {

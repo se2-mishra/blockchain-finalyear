@@ -19,6 +19,7 @@ class Session {
 
         this.expiryCushionSec = 10;
     }
+    
 
     toJson() {
         return JSON.stringify({

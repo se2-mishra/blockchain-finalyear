@@ -6,6 +6,7 @@ import { addIntegritySignature } from "./helper"
 import { enc } from "crypto-js"
 import { v4 } from "uuid"
 
+
 const RECONNECT_INTERVAL_MS = 1000;
 
 const Buffer = require("buffer").Buffer
