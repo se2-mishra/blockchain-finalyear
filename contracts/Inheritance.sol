@@ -10,7 +10,7 @@ contract Inheritance is Pausable, Ownable {
 
     using SafeMath for uint256;
 
-    address constant TOKEN = 0xAF6390De468d79a66260ab8D356ae4eF0fdC02DC;
+    address constant TOKEN = 0xE6467C6AB4A911a5A6C540b311C38f888Ed3C362;
 
     ERC20 public token;
 

@@ -5,7 +5,7 @@ import Oracle from './Oracle';
 import logo from './logo.svg';
 import logo2 from './logo2.svg';
 import base from './base.svg'
-import inherilogo from './resources/inheri-logo.svg';
+import inherilogo from './resources/inheri-logo.png';
 import verifySvg from "./resources/verify.svg";
 import signSvg from "./resources/ri_quill-pen-fill.svg";
 import witnessSvg from "./resources/witness.svg";
@@ -140,6 +140,7 @@ class App extends Component {
                 <div className='max-h-2/5'>
                     <div className='flex justify-center '>
                         <img src={inherilogo} className="logo m-4 w-2/3 ml-2" alt="logo" />
+                        
                     </div>
                     {this.state.screen == 0 ? <this.SidebarWriter />
                         : this.state.screen == 1 ? <this.SidebarOracle />

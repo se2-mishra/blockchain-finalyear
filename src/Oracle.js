@@ -3,8 +3,10 @@ import './App.css';
 import Web3 from 'web3'
 import { keccak512 } from 'js-sha3'
 
-import Inheritance_abi from "./Inheritance_abi.json";
-import WeaveHash_abi from "./WeaveHash_abi.json";
+// import Inheritance_abi from "./Inheritance_abi.json";
+// import WeaveHash_abi from "./WeaveHash_abi.json";
+import Inheritance from "./Inheritance.json";
+import WeaveHash from "./WeaveHash.json";
 
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk'
 import {coinbaseWallet} from "./Writer";
@@ -13,7 +15,7 @@ const Buffer = require("buffer").Buffer
 const gasPrice = 1000; //saving tokens. It seems any gas price will work (for now) as the netowrk is not used
 
 const CHAIN_ID = "0x14A33"; //base testnet
-const CONTRACT_ADDRESS = "0xc2CA9937fCbd04e214965fFfD3526045aba337CC";
+const CONTRACT_ADDRESS = "0x85e68eaA70B7D70e682A01B69A1852Ba8E4C224B";
 
 const CHAIN = {
     chainId: CHAIN_ID,
@@ -65,7 +67,7 @@ class Oracle extends Component {
     }
 
     async status() {
-        const contract = await new window.web3.eth.Contract(Inheritance_abi, CONTRACT_ADDRESS);
+        const contract = await new window.web3.eth.Contract(Inheritance, CONTRACT_ADDRESS);
         const oracles = await contract.methods.OraclesCount().call({ chainId: CHAIN_ID });
         let signed = 0;
         for (let i = 0; i < oracles; i++) {
@@ -86,14 +88,14 @@ class Oracle extends Component {
     async connect() {
         this.setState({ currentMetamaskAccount: await this.getCurrentWallet() });
 
-        const contract = await new window.web3.eth.Contract(Inheritance_abi, CONTRACT_ADDRESS);
+        const contract = await new window.web3.eth.Contract(Inheritance, CONTRACT_ADDRESS);
         console.log(await contract.methods.Oracles(0).call())
         console.log(await contract.methods.Oracles(1).call())
         console.log(await contract.methods.Oracles(2).call())
     }
 
     async vote() {
-        const contract = await new window.web3.eth.Contract(Inheritance_abi, CONTRACT_ADDRESS);
+        const contract = await new window.web3.eth.Contract(Inheritance, CONTRACT_ADDRESS);
 
         const account = this.state.currentMetamaskAccount;
         let msg = "I confirm that it's time" +

@@ -4,8 +4,10 @@ import Web3 from 'web3'
 import WeaveHelper from "./weaveapi/helper";
 import { keccak512 } from 'js-sha3'
 import { binary_to_base58, base58_to_binary } from 'base58-js'
-import WeaveHash_abi from "./WeaveHash_abi.json";
-import Inheritance_abi from "./Inheritance_abi.json";
+// import WeaveHash_abi from "./WeaveHash_abi.json";
+import WeaveHash from "./WeaveHash.json";
+// import Inheritance_abi from "./Inheritance_abi.json";
+import Inheritance from "./Inheritance.json";
 import mermaid from "mermaid";
 import Form from './components/form';
 
@@ -15,6 +17,7 @@ import {coinbaseWallet} from "./Writer";
 const Buffer = require("buffer").Buffer
 
 const sideChain = "https://public2.weavechain.com:443/92f30f0b6be2732cb817c19839b0940c";
+// const sideChain = "http://localhost:18080/92f30f0b6be2732cb817c19839b0940c";
 
 const authChain = "base";
 
@@ -27,13 +30,13 @@ const digest = "Keccak-512";
 const gasPrice = 1000; //saving tokens. It seems any gas price will work (for now) as the netowrk is not used
 
 const CHAIN_ID = "0x14A33"; //base testnet
-const HASH_CONTRACT_ADDRESS = "0xB46459Cf87f1D6dDcf8AABDd5642cf27a39CeC68";
+const HASH_CONTRACT_ADDRESS = "0xCFCfED49d55B3F8D72a8C0Ea79A7a59e425d8794";
 //const CHAIN_ID = "0x1A4"; //optimism testnet
 //const HASH_CONTRACT_ADDRESS = "0xB46459Cf87f1D6dDcf8AABDd5642cf27a39CeC68";
 //const CHAIN_ID = "0x13881"; //polygon testnet
 //const HASH_CONTRACT_ADDRESS = "0xa6cC2c2521af849166D3c9657b5511fD74Cd1C91";
 
-const CONTRACT_ADDRESS = "0xc2CA9937fCbd04e214965fFfD3526045aba337CC";
+const CONTRACT_ADDRESS = "0x85e68eaA70B7D70e682A01B69A1852Ba8E4C224B";
 
 const SHOW_WITHDRAW = false;
 
@@ -269,7 +272,7 @@ class Reader extends Component {
                 const account = Web3.utils.toChecksumAddress(accounts[0]);
                 console.log(account)
 
-                const contract = await new window.web3.eth.Contract(WeaveHash_abi, HASH_CONTRACT_ADDRESS, { from: account });
+                const contract = await new window.web3.eth.Contract(WeaveHash, HASH_CONTRACT_ADDRESS, { from: account });
                 //console.log(contract.methods)
                 const fn = contract.methods.readHashes();
                 const items = await fn.call({ chainId: CHAIN_ID });
@@ -370,7 +373,7 @@ class Reader extends Component {
 
     async withdraw() {
         const account = await this.getCurrentWallet();
-        const contract = await new window.web3.eth.Contract(Inheritance_abi, CONTRACT_ADDRESS, { from: account });
+        const contract = await new window.web3.eth.Contract(Inheritance, CONTRACT_ADDRESS, { from: account });
 
         const res = await contract.methods.withdraw().send({ from: account, gasPrice: gasPrice });
         console.log(res);

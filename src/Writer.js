@@ -7,8 +7,8 @@ import CodeEditor from "@uiw/react-textarea-code-editor";
 import Claim from './components/claim';
 import Form from './components/form';
 
-import Inheritance_abi from "./Inheritance_abi.json";
-import FiatTokenV1_abi from "./FiatTokenV1_abi.json";
+import Inheritance from "./Inheritance.json";
+import ERC20 from "./ERC20.json";
 import SidebarWrapper from './components/sidebar-wrapper';
 
 export const coinbaseWallet = new CoinbaseWalletSDK({
@@ -17,7 +17,7 @@ export const coinbaseWallet = new CoinbaseWalletSDK({
 })
 
 const sideChain = "https://public2.weavechain.com:443/92f30f0b6be2732cb817c19839b0940c";
-//const sideChain = "http://localhost:18080/92f30f0b6be2732cb817c19839b0940c";
+// const sideChain = "http://localhost:18080/92f30f0b6be2732cb817c19839b0940c";
 
 const authChain = "base";
 
@@ -28,13 +28,13 @@ const data_collection = "private";
 const table = "inheritance2";
 
 const CHAIN_ID = "0x14A33"; //base testnet
-const CONTRACT_ADDRESS = "0x75DF5D1007325410cD6f6809D39142edE44f88a1";
+const CONTRACT_ADDRESS = "0x85e68eaA70B7D70e682A01B69A1852Ba8E4C224B";
 const CHAIN_URL = "https://goerli.base.org";
 
 const ethereum = coinbaseWallet.makeWeb3Provider(CHAIN_URL, CHAIN_ID);
 window.ethereum = ethereum;
 
-const TOKEN_ADDRESS = "0xf26490E8bdFfa5EBE8625Bafa967560303D802E4";
+const TOKEN_ADDRESS = "0x836b4Eb874b56d8D65F929ea14Fd5ee6ff27d807";
 
 const DECIMALS = 6;
 
@@ -56,9 +56,13 @@ class Writer extends Component {
             const keys = WeaveHelper.generateKeys();
             publicKey = keys[0];
             privateKey = keys[1];
+           
         } else {
-            publicKey = "weave283zqhDkng9jjQvTrWhmodR8R32QR1WV1w65jysGyefDC";
-            privateKey = "FnJJikMtRXC3LvLi7hpGn5srPRmrecHNz5mWbzgpkxJb";
+             // publicKey = "weave283zqhDkng9jjQvTrWhmodR8R32QR1WV1w65jysGyefDC";
+            // privateKey = "FnJJikMtRXC3LvLi7hpGn5srPRmrecHNz5mWbzgpkxJb";
+            publicKey = "weaveybpfNvUsNeJZcshzQ1Rqaf9wj9q3TmXGpwaZMK9XahBW";
+            privateKey = "CuqABCXVCsFaQJH78FFRfzBvWQAP7ihm3vogVZM6ab4c";
+            
         }
 
         this.state = {
@@ -186,8 +190,8 @@ class Writer extends Component {
         const account = Web3.utils.toChecksumAddress(accounts[0]);
         console.log(account)
 
-        const contract = await new window.web3.eth.Contract(Inheritance_abi, CONTRACT_ADDRESS, { from: account });
-        const feeToken = await new window.web3.eth.Contract(FiatTokenV1_abi, TOKEN_ADDRESS, { from: account });
+        const contract = await new window.web3.eth.Contract(Inheritance, CONTRACT_ADDRESS, { from: account });
+        const feeToken = await new window.web3.eth.Contract(ERC20, TOKEN_ADDRESS, { from: account });
 
         const res = await contract.methods.setOracles([
             this.state.oracle_1,
@@ -307,6 +311,8 @@ class Writer extends Component {
                         <div className='flex justify-between'>
                             <span className="text-zinc-500 font-bold text-left">Weavechain public key: </span>
                             <span className="text-zinc-300">{this.state.publicKey}</span>
+                            {/* <span className="text-zinc-500 font-bold text-left">Weavechain private key: </span>
+                            <span className="text-zinc-300">{this.state.privateKey}</span> */}
                         </div>
 
                         {/* <label className="text-yellow-600">Oracle #1</label>
